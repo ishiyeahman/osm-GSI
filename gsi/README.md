@@ -4,7 +4,7 @@
 GSI API examples.
 
 #### get_max_depth(LAT, LON, key=None)
-Please refer to original document if you'd like to about parameters. [ https://suiboumap.gsi.go.jp/pdf/Data-riyo_manual.pdf (p.9) ]
+Please refer to original document if you'd like to know about parameters. [ https://suiboumap.gsi.go.jp/pdf/Data-riyo_manual.pdf (p.9) ]
 You can get json Data about Flood Depth and so on. If you need to the single parameter, you have to set the key as parameter name.
 
 Demo:
