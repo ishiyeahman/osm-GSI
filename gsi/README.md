@@ -5,10 +5,9 @@ GSI API examples.
 
 #### get_max_depth(LAT, LON, key=None)
 Please refer to original document if you'd like to about parameters. [ https://suiboumap.gsi.go.jp/pdf/Data-riyo_manual.pdf (p.9) ]
-
 You can get json Data about Flood Depth and so on. If you need to the single parameter, you have to set the key as parameter name.
 
-demo:
+Demo:
 ```python
 print("Kyushu University, Hakozaki campus.")
 print( gsi.get_max_depth(33.62677707060762, 130.42496194503377) )
