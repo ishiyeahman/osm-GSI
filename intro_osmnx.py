@@ -4,8 +4,6 @@ import networkx as nx
 
 place = {'city' : 'Kumamoto','state' : 'Kumamoto', 'country' : 'Japan'}
 
-G = ox.graph_from_place(place)
+G = ox.graph_from_place(place, network_type='drive')
 
-# ox.plot_graph()
-
-nx.draw_networkx(G)
+ox.plot_graph()
