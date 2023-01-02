@@ -1,7 +1,7 @@
 import requests
 
-# latitude , longitude 
-def get_max_depth(LAT, LON, key=None):
+#  longitude , latitude 
+def get_max_depth(LON, LAT, key=None):
     url = f"https://suiboumap.gsi.go.jp/shinsuimap/Api/Public/GetMaxDepth?lon={LON}&lat={LAT}"
     response = requests.get(url)
     jsonData = response.json()
