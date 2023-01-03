@@ -5,9 +5,11 @@ def get_max_depth(LON, LAT, key=None):
     url = f"https://suiboumap.gsi.go.jp/shinsuimap/Api/Public/GetMaxDepth?lon={LON}&lat={LAT}"
     response = requests.get(url)
     jsonData = response.json()
-    
     if key:
-        return jsonData[key]
+        if jsonData:
+            return jsonData[key]
+        else :
+            return  None
     
     return jsonData
 
