@@ -11,14 +11,25 @@ geo_data = json.load(json_open)
 
 coord = geo_data['elements']
 
-cnt = 0
+
+lons , lats = [], []
 for n in coord:
-    cnt += 1
     if n['type'] == "node":
-        a = float(n['lon'])
-        b = float(n['lat'])
+        lons += [ n['lon'] ]
+        lats += [ n['lat'] ]
+        
+depths = gsi.get_max_depth_multi_thread(lons, lats, "Depth")
+
+print(depths)
+
+depth_index = 0
+for n in coord:
+    if n['type'] == "node":
+        a = n['lon']
+        b = n['lat']
         # print(f"lon:{a}, lat{b}")
-        d =  gsi.get_max_depth(a, b, "Depth")
+        d = depths[depth_index]
+        depth_index += 1
         
         if d is None:
             plt.plot(b, a,marker='.', color = (0.0, 0.5, 0.0, 0.3 ))

@@ -18,6 +18,6 @@ for a , b in lon_lat[0]:
     lons  += [a]
     lats  += [b]
     
-x = gsi.get_max_depth_multi_thread(lons, lats)
+x = gsi.get_max_depth_multi_thread(lons, lats, "Depth")
 print(x)
     
