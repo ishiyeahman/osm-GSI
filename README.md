@@ -15,3 +15,8 @@ osmnx-GSI is the combination with osmnx library and GSI's API.
 This geographic library is  specialized in Japan Map, basecally.
 We would use to study about disaster what is happend in Japan 
 
+<a href="gsi/README.md">osmnx GSI document </a>
+- This is simple osmnx plot data.
+<img src="docs/img/kumamoto_osm.png" width="300" height="300">
+- Here, kumamto city' s hazard map made by GSI-API and osmnx.
+<img src="docs/img/kumamoto.png" width="300" height="300">

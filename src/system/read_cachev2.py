@@ -9,10 +9,11 @@ geo_data = json.load(json_open)
 coord = geo_data['elements']
 
 for n in coord:
-    a = n['lon']
-    b = n['lat']
-    print(f"lon:{a}, lat{b}")
-    plt.plot(b, a,marker='.', color = "green")
+    if n['type'] == "node":
+        a = n['lon']
+        b = n['lat']
+        print(f"lon:{a}, lat{b}")
+        plt.plot(b, a,marker='.', color = "green")
     
 
 plt.show()
