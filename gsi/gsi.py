@@ -16,6 +16,7 @@ def get_max_depth(LON, LAT, key=None):
         print(f"get_max_depth : {LON} {LAT} : exception!")
         return None
         
+    print(response)
     jsonData = response.json()
     print(f"get_max_depth : {LON} {LAT} : {jsonData}")
     if key in config_get_max_depth_keys:
@@ -58,7 +59,7 @@ async def get_multi_max_depth(LONS, LATS, key=None):
 
 def get_max_depth_multi_thread(LONS, LATS, key=None):
     len_argument =  len(LONS)
-    MAX_WORKERS = 200
+    MAX_WORKERS = 32
     
     processed = []
     
