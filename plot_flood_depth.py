@@ -2,11 +2,11 @@ import json
 import gsi.gsi as gsi
 
 # need to set cache path
-from  src.system.meta.paths import jpath_a
+from  src.system.meta.paths import path_chuo_kumamoto as data_path
 
 import matplotlib.pyplot as plt
 
-json_open = open(jpath_a, 'r')
+json_open = open(data_path, 'r')
 geo_data = json.load(json_open)
 
 coord = geo_data['elements']
