@@ -69,7 +69,26 @@ def get_max_depth_multi_thread(LONS, LATS, key=None):
         for result in results:
             processed.append(result)
             
-
-    
     return processed
 
+def address_search(query):
+    url = f"https://msearch.gsi.go.jp/address-search/AddressSearch?q={query}"
+    
+    try:
+        response = requests.get(url, timeout=300)
+    except :
+        return None
+    
+    jsonData = response.json()
+    return  jsonData
+    
+def lon_lat_to_address(lon, lat):
+    url = f"GET https://mreversegeocoder.gsi.go.jp/reverse-geocoder/LonLatToAddress?lat={lat}&lon={lon}"
+    
+    try:
+        response = requests.get(url, timeout=300)
+    except :
+        return None
+    
+    jsonData = response.json()
+    return  jsonData
