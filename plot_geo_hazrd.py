@@ -17,8 +17,6 @@ node_colors = ["blue"]*nn
 node_alphas = []
 
 
-
-
 # """
 json_open = open(data_path, 'r')
 geo_data = json.load(json_open)
@@ -33,7 +31,8 @@ for n in coord:
 depths = gsi.get_max_depth_multi_thread(lons, lats, "Depth")
 # """
 
-max_depth = max(depths)
+depth_values = list(filter(None, depths))
+max_depth = max(depth_values)
 
 for i in range(nn):
     if depths[i] is None:
