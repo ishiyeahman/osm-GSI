@@ -59,7 +59,7 @@ async def get_multi_max_depth(LONS, LATS, key=None):
 
 def get_max_depth_multi_thread(LONS, LATS, key=None):
     len_argument =  len(LONS)
-    MAX_WORKERS = 32
+    MAX_WORKERS = 256
     
     processed = []
     
