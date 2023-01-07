@@ -92,3 +92,18 @@ def lon_lat_to_address(lon, lat):
     
     jsonData = response.json()
     return  jsonData
+
+
+# 2.1.8.2
+
+def get_max_depth_from_lat_lon(LON, LAT, CSVScale):
+    url = f"https://suiboumap.gsi.go.jp/shinsuimap/Api/Public/GetMaxDepthFromLatlon?lon={LON}&lat={LAT}&CSVScale={CSVScale}"
+    
+    try:
+        response = requests.get(url, timeout=300)
+    except :
+        return None
+    
+    jsonData = response.json()
+    return  jsonData
+
