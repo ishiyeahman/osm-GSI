@@ -1,5 +1,9 @@
 ## GSI API
 
+
+## USAGE
+reference : https://suiboumap.gsi.go.jp/pdf/Data-riyo_manual.pdf
+
 ### using GSI API
 GSI API examples.
 
