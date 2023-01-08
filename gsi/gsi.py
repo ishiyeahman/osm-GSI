@@ -16,6 +16,7 @@ def get_max_depth(LON, LAT, key=None):
         print(f"get_max_depth : {LON} {LAT} : exception!")
         return None
         
+    print(response)
     jsonData = response.json()
     print(f"get_max_depth : {LON} {LAT} : {jsonData}")
     if key in config_get_max_depth_keys:
@@ -58,7 +59,7 @@ async def get_multi_max_depth(LONS, LATS, key=None):
 
 def get_max_depth_multi_thread(LONS, LATS, key=None):
     len_argument =  len(LONS)
-    MAX_WORKERS = 200
+    MAX_WORKERS = 256
     
     processed = []
     
@@ -68,7 +69,65 @@ def get_max_depth_multi_thread(LONS, LATS, key=None):
         for result in results:
             processed.append(result)
             
-
-    
     return processed
 
+def address_search(query):
+    url = f"https://msearch.gsi.go.jp/address-search/AddressSearch?q={query}"
+    
+    try:
+        response = requests.get(url, timeout=300)
+    except :
+        return None
+    
+    jsonData = response.json()
+    return  jsonData
+    
+def lon_lat_to_address(lon, lat):
+    url = f"GET https://mreversegeocoder.gsi.go.jp/reverse-geocoder/LonLatToAddress?lat={lat}&lon={lon}"
+    
+    try:
+        response = requests.get(url, timeout=300)
+    except :
+        return None
+    
+    jsonData = response.json()
+    return  jsonData
+
+
+# 2.1.8.2
+
+def get_max_depth_from_lat_lon(LON, LAT, CSVScale):
+    url = f"https://suiboumap.gsi.go.jp/shinsuimap/Api/Public/GetMaxDepthFromLatlon?lon={LON}&lat={LAT}&CSVScale={CSVScale}"
+    
+    try:
+        response = requests.get(url, timeout=300)
+    except :
+        return None
+    
+    jsonData = response.json()
+    return  jsonData
+
+# 2.1.10
+
+def get_max_continue_from_lat_lon(LON, LAT):
+    url = f"http://suiboumap.gsi.go.jp/shinsuimap/api/public/GetMaxContinueFromLatlon?lon={LON}&lat={LAT}"
+    
+    try:
+        response = requests.get(url, timeout=300)
+    except :
+        return None
+    
+    jsonData = response.json()
+    return  jsonData
+
+# 2.1.11
+def get_break_points_180min_50cm(LON, LAT):
+    url = f"http://suiboumap.gsi.go.jp/shinsuimap/api/public/GetBreakPoints180min50cm?lon={LON}&lat={LAT}"
+    
+    try:
+        response = requests.get(url, timeout=300)
+    except :
+        return None
+    
+    jsonData = response.json()
+    return  jsonData
