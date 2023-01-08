@@ -107,3 +107,19 @@ def get_max_depth_from_lat_lon(LON, LAT, CSVScale):
     jsonData = response.json()
     return  jsonData
 
+# 2.1.10
+
+def get_max_continue_from_lat_lon(LON, LAT):
+    url = f"http://suiboumap.gsi.go.jp/shinsuimap/api/public/GetMaxContinueFromLatlon?lon={LON}&lat={LAT}""
+
+# 2.1.11
+def get_break_points_180min_50cm(LON, LAT):
+    url = f"http://suiboumap.gsi.go.jp/shinsuimap/api/public/GetBreakPoints180min50cm?lon={LON}&lat={LAT}"
+    
+    try:
+        response = requests.get(url, timeout=300)
+    except :
+        return None
+    
+    jsonData = response.json()
+    return  jsonData
